@@ -10,29 +10,35 @@ public class ReplaceCharactersFromString {
     }
 
     private String validateProgramArgs(String[] args) {
-        if (args != null && args.length == 2) {
-            return "Invalid: Number of Arguments Provided, Usage: java ReplaceCharactersFromString <String> <Single character>";
+        if (args == null || args!=null && args[0] != null && args.length==1) {
+            return "Invalid: Number of arguments provided, Usage: java ReplaceCharactersFromString <String> <Single character>";
         }
-        if (args[1].length() > args[0].length()) {
-            return "Invalid: Character to be replaced greater than String supplied";
+        if (args != null &&  args[1].length() > 1) {
+            return "Invalid: Character to be replaced length greater than 1";
         }
-
+        if (args != null && args[1].length() > args[0].length()) {
+            return "Invalid: Character to be replaced length greater than String supplied";
+        }
         return null;
     }
 
     public static void main(String[] args) {
-
         ReplaceCharactersFromString replaceCharactersFromString = new ReplaceCharactersFromString();
-        String validationResult =replaceCharactersFromString.validateProgramArgs(args);
-        if (validationResult!= null) {
-            System.out.println(validationResult);
-            return;
-        }
-
         replaceCharactersFromString.replace(args);
     }
 
-    private void replace(String[] args) {
+    public String replace(String[] args) {
+       // String[] args = {string, String.valueOf(character)};
+        String validationResult =validateProgramArgs(args);
+        if (validationResult!= null) {
+            System.out.println(validationResult);
+            return validationResult;
+        }
+        return "";
 
+        //charAt()
+        //subString()
+        //Iteration
+        //Recursion
     }
 }
