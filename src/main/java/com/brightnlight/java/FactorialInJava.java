@@ -42,7 +42,6 @@ public class FactorialInJava{
             result = result*number;
             number--;
         }
-
         return result;
     }
 }
